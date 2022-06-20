@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:signin_signup/screen/boissonScreen.dart';
 import 'package:signin_signup/screen/dessertScreen.dart';
+import 'package:signin_signup/screen/productScreen.dart';
 import 'package:signin_signup/screen/promotionScreen.dart';
+import 'package:signin_signup/screen/restoProfile.dart';
 import 'package:signin_signup/utils/helper.dart';
 
 import '../const/colors.dart';
@@ -11,154 +13,246 @@ import '../widgets/searchBox.dart';
 import 'HomeScreen.dart';
 import 'alimentScreen.dart';
 
-class MenuScreen extends StatelessWidget {
-  static const routeName ='/menuScreen';
+class MenuScreen extends StatefulWidget {
+  static const routeName = '/menuScreen';
+
+  final restaurant_detail_name;
+  final restaurant_detail_image;
+  final restaurant_detail_address;
+
+  MenuScreen(
+      {this.restaurant_detail_name,
+      this.restaurant_detail_image,
+      this.restaurant_detail_address});
+
+  @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
+  get restaurant_detail_name => restaurant_detail_name;
+  get restaurant_detail_image => restaurant_detail_image;
+  get restaurant_detail_address => restaurant_detail_address;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.bgcolor,
-        title: Text("Menu", style: TextStyle(color: Colors.black, fontSize: 18),),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-          },
+        appBar: AppBar(
+          backgroundColor: AppColor.bgcolor,
+          title: Text(
+            "Menu",
+            style: TextStyle(color: Colors.black, fontSize: 18),
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+            },
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNavBar(),
-      body: Stack(
-        children: [
+        bottomNavigationBar: BottomNavBar(),
+        body: Stack(children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: SingleChildScrollView(
-              child: SafeArea(
-                  child: Column(
-                children: [
-                  SearchBox(onChanged: (String value) { },),
-                  SizedBox(height: 50),
-                  SizedBox(
-                    height: Helper.getScreenHeight(context) *0.5,
-                    width: Helper.getScreenWidth(context),
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: double.infinity,
-                          width: 100,
-                          decoration: ShapeDecoration(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(40),
-                                bottomRight: Radius.circular(40),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: SingleChildScrollView(
+                  child: SafeArea(
+                child: Column(
+                  children: [
+                    // SearchBox(onChanged: (String value) { },),
+                    // Padding(
+                    //     padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    //     child: Row(
+                    //         mainAxisAlignment: MainAxisAlignment.center,
+                    //         children: [
+                    //           Text(
+                    //             "Bienvenue chez  ",
+                    //             style: TextStyle(
+                    //               fontSize: 25,
+                    //               color: AppColor.primary,
+                    //               fontWeight: FontWeight.bold,
+                    //             ),
+                    //           ),
+                    //           Text(
+                    //             widget.restaurant_detail_name,
+                    //             style: TextStyle(
+                    //                 fontSize: 25,
+                    //                 color: AppColor.red,
+                    //                 fontWeight: FontWeight.bold),
+                    //           ),
+                    //           Text(
+                    //             "  :) ",
+                    //             style: TextStyle(
+                    //                 fontSize: 25,
+                    //                 color: AppColor.primary,
+                    //                 fontWeight: FontWeight.bold),
+                    //           ),
+                    //         ])),
+                    SizedBox(height: 20),
+                    Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // GestureDetector(
+                            //   onTap: () => Navigator.of(context)
+                            //       .push(new MaterialPageRoute(
+                            //           builder: (context) => new SellerProfileScreen())),
+                            //   child: restaurantCard(
+                            //     imageResto: ClipPath(
+                            //       clipper: CustomDiamond(),
+                            //       child: Container(
+                            //         height: 80,
+                            //         width: 80,
+                            //         child: Image.network(
+                            //             widget.restaurant_detail_image),
+                            //       ),
+                            //     ),
+                            //     name: widget.restaurant_detail_name,
+                            //     // address: widget.restaurant_detail_address,
+                            //   ),
+                            // ),
+
+                            //*****  loutani lkol ********
+                            SizedBox(height: 150),
+                            SizedBox(
+                              height: Helper.getScreenHeight(context) * 0.5,
+                              width: Helper.getScreenWidth(context),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    height: double.infinity,
+                                    width: 100,
+                                    decoration: ShapeDecoration(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(40),
+                                          bottomRight: Radius.circular(40),
+                                        ),
+                                      ),
+                                      color: AppColor.red,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context)
+                                                .pushReplacementNamed(
+                                                    ProductScreen.routeName);
+                                          },
+                                          child: MenuCard(
+                                            imageShape: ClipPath(
+                                              clipper: CustomTriangle(),
+                                              child: Container(
+                                                height: 80,
+                                                width: 80,
+                                                child: Image.asset(
+                                                  "assets/images/food.jpg",
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            name: "Aliments",
+                                            count: "100",
+                                          ),
+                                        ),
+                                        SizedBox(height: 20),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context)
+                                                .pushReplacementNamed(
+                                                    ProductScreen.routeName);
+                                          },
+                                          child: MenuCard(
+                                            imageShape: ClipPath(
+                                              clipper: CustomTriangle(),
+                                              child: Container(
+                                                height: 80,
+                                                width: 80,
+                                                child: Image.asset(
+                                                  "assets/images/dessert.jpg",
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            name: "Desserts",
+                                            count: "20",
+                                          ),
+                                        ),
+                                        SizedBox(height: 20),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context)
+                                                .pushReplacementNamed(
+                                                    ProductScreen.routeName);
+                                          },
+                                          child: MenuCard(
+                                            imageShape: ClipPath(
+                                              clipper: CustomTriangle(),
+                                              child: Container(
+                                                height: 80,
+                                                width: 80,
+                                                child: Image.asset(
+                                                  "assets/images/coffee2.jpg",
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            name: "Boisson",
+                                            count: "50",
+                                          ),
+                                        ),
+                                        SizedBox(height: 20),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context)
+                                                .pushReplacementNamed(
+                                                    ProductScreen.routeName);
+                                          },
+                                          child: MenuCard(
+                                            imageShape: ClipPath(
+                                              clipper: CustomTriangle(),
+                                              child: Container(
+                                                height: 80,
+                                                width: 80,
+                                                child: Image.asset(
+                                                  "assets/images/hamburger3.jpg",
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            name: "Promotions",
+                                            count: "30",
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                            color: AppColor.red,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: (){
-                                  Navigator.of(context).pushReplacementNamed(DessertScreen.routeName);
-                                },
-                                child: MenuCard(
-                                  imageShape: ClipPath(
-                                    clipper: CustomTriangle(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Image.asset("assets/images/dessert.jpg", fit: BoxFit.cover,),
-                                    ),
-                                  ),
-                                  name: "Desserts",
-                                  count: "20",
-                                ),
-                              ),
-                              SizedBox(height: 20),
-                              GestureDetector(
-                                onTap: (){
-                                  Navigator.of(context).pushReplacementNamed(AlimentScreen.routeName);
-                                },
-                                child: MenuCard(
-                                  imageShape: ClipPath(
-                                    clipper: CustomTriangle(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Image.asset("assets/images/food.jpg", fit: BoxFit.cover,),
-                                    ),
-                                  ),
-                                  name: "Aliments",
-                                  count: "100",
-                                ),
-                              ),
-                              SizedBox(height: 20),
-                              GestureDetector(
-                                onTap: (){
-                                  Navigator.of(context).pushReplacementNamed(BoissonScreen.routeName);
-                                },
-                                child: MenuCard(
-                                  imageShape: ClipPath(
-                                    clipper: CustomTriangle(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Image.asset("assets/images/coffee2.jpg", fit: BoxFit.cover,),
-                                    ),
-                                  ),
-                                  name: "Boisson",
-                                  count: "50",
-                                ),
-                              ),
-                              SizedBox(height: 20),
-                              GestureDetector(
-                                onTap: (){
-                                  Navigator.of(context).pushReplacementNamed(PromotionScreen.routeName);
-                                },
-                                child: MenuCard(
-                                  imageShape: ClipPath(
-                                    clipper: CustomTriangle(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Image.asset("assets/images/hamburger3.jpg", fit: BoxFit.cover,),
-                                    ),
-                                  ),
-                                  name: "Promotions",
-                                  count: "30",
-                                ),
-                              ),
-
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-            ),
-          )
-        ],
-      ),
-    );
+                          ],
+                        )),
+                  ],
+                ),
+              ))),
+        ]));
   }
 }
 
 class MenuCard extends StatelessWidget {
   const MenuCard({
-
     required String name,
     required String count,
     required Widget imageShape,
   })  : _name = name,
         _count = count,
         _imageShape = imageShape;
-
 
   final String _name;
   final String _count;
@@ -171,8 +265,7 @@ class MenuCard extends StatelessWidget {
         Container(
           height: 70,
           width: double.infinity,
-          margin: const EdgeInsets.symmetric(horizontal: 20
-          ),
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           padding: const EdgeInsets.symmetric(horizontal: 70.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -185,19 +278,18 @@ class MenuCard extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                   color: AppColor.placeholder,
-                  offset: Offset(0,5),
-                  blurRadius: 10
-              )
+                  offset: Offset(0, 5),
+                  blurRadius: 10)
             ],
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                  _name,
-                  style: Helper.getTheme(context).headline3?.copyWith(color: AppColor.primary)
-              ),
+              Text(_name,
+                  style: Helper.getTheme(context)
+                      .headline3
+                      ?.copyWith(color: AppColor.primary)),
               SizedBox(height: 5),
               Text("$_count Éléments")
             ],
@@ -223,14 +315,89 @@ class MenuCard extends StatelessWidget {
                     shadows: [
                       BoxShadow(
                         color: AppColor.placeholder,
-                        offset: Offset(0,2),
+                        offset: Offset(0, 2),
                         blurRadius: 5,
                       )
-                    ]
-                ),
+                    ]),
                 child: Icon(Icons.arrow_forward_ios, color: AppColor.red),
-              )
+              )),
+        ),
+      ],
+    );
+  }
+}
+
+class restaurantCard extends StatelessWidget {
+  final Widget imageResto;
+  final String name;
+
+  restaurantCard({
+    required this.imageResto,
+    required this.name,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          height: 70,
+          width: double.infinity,
+          margin: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 70.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(50),
+              bottomLeft: Radius.circular(50),
+              topRight: Radius.circular(10),
+              bottomRight: Radius.circular(10),
+            ),
+            color: AppColor.bgcolor,
+            boxShadow: [
+              BoxShadow(
+                  color: AppColor.placeholder,
+                  offset: Offset(0, 5),
+                  blurRadius: 10)
+            ],
           ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(name,
+                  style: Helper.getTheme(context)
+                      .headline3
+                      ?.copyWith(color: AppColor.primary)),
+              SizedBox(height: 5),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 70,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: imageResto,
+          ),
+        ),
+        SizedBox(
+          height: 70,
+          child: Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                height: 50,
+                width: 40,
+                decoration: ShapeDecoration(
+                    shape: CircleBorder(),
+                    color: AppColor.bgcolor,
+                    shadows: [
+                      BoxShadow(
+                        color: AppColor.placeholder,
+                        offset: Offset(0, 2),
+                        blurRadius: 5,
+                      )
+                    ]),
+                child: Icon(Icons.arrow_forward_ios, color: AppColor.red),
+              )),
         ),
       ],
     );

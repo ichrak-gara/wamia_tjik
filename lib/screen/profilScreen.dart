@@ -7,14 +7,17 @@ import 'HomeScreen.dart';
 import 'landingScreen.dart';
 
 class ProfilScreen extends StatelessWidget {
-  static const routeName ='/profilScreen';
+  static const routeName = '/profilScreen';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.bgcolor,
-        title: Text("Profil", style: TextStyle(color: Colors.black, fontSize: 18),),
+        title: Text(
+          "Profil",
+          style: TextStyle(color: Colors.black, fontSize: 18),
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
           onPressed: () {
@@ -42,7 +45,8 @@ class ProfilScreen extends StatelessWidget {
                             Container(
                               height: 90,
                               width: 90,
-                              child: Image.asset("assets/images/user.jpg",
+                              child: Image.asset(
+                                "assets/images/user.jpg",
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -52,9 +56,10 @@ class ProfilScreen extends StatelessWidget {
                                 height: 20,
                                 width: 80,
                                 color: Colors.black.withOpacity(0.3),
-                                child: Image.asset("assets/images/camera.png",
+                                child: Image.asset(
+                                  "assets/images/camera.png",
+                                ),
                               ),
-                            ),
                             )
                           ],
                         ),
@@ -65,7 +70,8 @@ class ProfilScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset("assets/images/edit_filled.png",
+                          Image.asset(
+                            "assets/images/edit_filled.png",
                           ),
                           SizedBox(
                             width: 5,
@@ -82,20 +88,21 @@ class ProfilScreen extends StatelessWidget {
                       Text(
                         "Bonjour Ichrak !",
                         style: Helper.getTheme(context).headline6?.copyWith(
-                          color: AppColor.primary,
-                        ),
+                              color: AppColor.primary,
+                            ),
                       ),
                       SizedBox(
                         height: 5,
                       ),
-                      Text("Sign Out",
+                      Text(
+                        "Sign Out",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                        color: Colors.brown,
+                          color: Colors.brown,
                         ),
                       ),
                       SizedBox(
-                        height: 40,
+                        height: 20,
                       ),
                       CustomFormImput(
                         label: "Name",
@@ -131,23 +138,17 @@ class ProfilScreen extends StatelessWidget {
                         isPassword: true,
                       ),
                       SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Confirm Password",
-                        value: "ichrak",
-                        isPassword: true,
-                      ),
-                      SizedBox(
-                        height: 20,
+                        height: 40,
                       ),
                       SizedBox(
                         height: 50,
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(HomeScreen.routeName);
+                          },
                           child: Text("Enregistrer"),
-
                         ),
                       )
                     ],
@@ -159,8 +160,7 @@ class ProfilScreen extends StatelessWidget {
           Positioned(
             bottom: 0,
             left: 0,
-            child: BottomNavBar(
-            ),
+            child: BottomNavBar(),
           ),
         ],
       ),

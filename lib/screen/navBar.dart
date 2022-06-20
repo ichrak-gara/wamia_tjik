@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:signin_signup/const/colors.dart';
+import 'package:signin_signup/screen/loginScreen.dart';
+import 'package:signin_signup/screen/cartScreen.dart';
+
+import 'landingScreen.dart';
 
 class NavBar extends StatelessWidget {
+  static const routeName = "/navbarScreen";
   const NavBar({Key? key}) : super(key: key);
 
   @override
@@ -30,8 +35,8 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.shopping_cart),
-            title: Text('restaurants'),
-            onTap: () {},
+            title: Text('panier'),
+            onTap: ()  => Navigator.of(context).pop(null),
           ),
           ListTile(
             leading: Icon(Icons.favorite),
@@ -58,8 +63,7 @@ class NavBar extends StatelessWidget {
             title: Text('livraison'),
             onTap: () {},
           ),
-          Divider(color: Colors.black,),
-          Spacer(),
+          Divider(color: Colors.grey),
           ListTile(
             leading: Icon(Icons.info_outline),
             title: Text('informations'),
@@ -73,12 +77,10 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('Déconnexion'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(LandingScreen.routeName);
+            },
           ),
-
-
-
-
         ],
       ),
     );

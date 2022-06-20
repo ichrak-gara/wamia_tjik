@@ -5,10 +5,12 @@ import '../const/colors.dart';
 class CustomTextInput extends StatelessWidget {
   const CustomTextInput({
     required String hintText,
+
     Key? key,
   }) : _hintText = hintText, super(key: key);
 
   final String _hintText;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,6 +21,7 @@ class CustomTextInput extends StatelessWidget {
         shape: StadiumBorder(),
       ),
       child: TextField(
+        controller: TextEditingController(),
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: _hintText,

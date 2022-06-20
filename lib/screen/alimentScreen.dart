@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:signin_signup/screen/indivItem.dart';
 import 'package:signin_signup/screen/menuScreen.dart';
-
 import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/searchBox.dart';
@@ -39,41 +39,48 @@ class AlimentScreen extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  DessertCard(
-                    image: Image.asset("assets/images/apple_pie.jpg",
-                      fit: BoxFit.cover,
+
+                  InkWell(
+                    onTap: ()
+                    {
+                      Navigator.of(context).pushReplacementNamed(IndivItem.routeName);
+                    },
+                    child: DessertCard(
+                      image: Image.asset("assets/images/pizza4.jpg",
+                        fit: BoxFit.cover,
+                      ),
+                      name: "Pizza 4 Saison ",
+                      rating: "4.9",
                     ),
-                    name: "Pizza ",
-                    rating: "4.9",
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   DessertCard(
-                    image: Image.asset("assets/images/dessert2.jpg",
+                    image: Image.asset("assets/images/tacos.jpeg",
                       fit: BoxFit.cover,
                     ),
-                    name: "Dark Chocolate Cake",
+                    name: "Tacos escalope",
                     rating: "4.7",
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   DessertCard(
-                    image: Image.asset("assets/images/dessert4.jpg",
+                    image: Image.asset("assets/images/hamburger3.jpg",
                       fit: BoxFit.cover,
                     ),
-                    name: "Street Shake",
+                    name: "Hamburger",
                     rating: "4.9",
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   DessertCard(
-                    image: Image.asset("assets/images/dessert5.jpg",
+                    image: Image.asset("assets/images/miams-sousse.jpg",
                       fit: BoxFit.cover,
                     ),
-                    name: "Fudgy Chewy Brownies",
+                    name: "plat ",
                     rating: "4.9",
                   ),
                   SizedBox(

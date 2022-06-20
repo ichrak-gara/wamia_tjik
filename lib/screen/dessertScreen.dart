@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signin_signup/screen/indivItem.dart';
 import 'package:signin_signup/screen/menuScreen.dart';
 
 import '../const/colors.dart';
@@ -43,13 +44,13 @@ class DessertScreen extends StatelessWidget {
                   InkWell(
                     onTap: ()
                     {
-                      Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
+                      Navigator.of(context).pushReplacementNamed(IndivItem.routeName);
                     },
                     child: DessertCard(
                       image: Image.asset("assets/images/apple_pie.jpg",
                         fit: BoxFit.cover,
                       ),
-                      name: "Cake au Chocolate",
+                      name: "apple pie",
                       rating: "4.9",
                     ),
                   ),

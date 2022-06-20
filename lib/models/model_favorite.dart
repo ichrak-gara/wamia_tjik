@@ -1,17 +1,22 @@
 import 'package:flutter/cupertino.dart';
 
-class FavoriteModel {
-  String id;
-  String name;
-  String price;
-  String image;
-  String itemId;
+class FavoriteModel with ChangeNotifier {
+  final String title;
+  final String describtion;
+  // final String url;
+  final String id;
+  final String itemsId;
+  final String image;
+  final String price;
 
-  FavoriteModel({
-    required this.id,
-    required this.name,
-    required this.price,
-    required this.image,
-    required this.itemId,
-  });
+  FavoriteModel(
+      {
+        required this.id,
+        required this.itemsId,
+        required this.title,
+        required this.describtion,
+        // required this.url,
+        required this.image,
+        required this.price
+      });
 }

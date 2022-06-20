@@ -67,9 +67,9 @@ class LandingScreen extends StatelessWidget {
                               .textTheme.headline6!
                               .copyWith(fontWeight: FontWeight.bold),
                           children: [
-                            TextSpan(text: "Wamia", style: TextStyle(color: Colors.grey),
+                            TextSpan(text: "Wamia", style: TextStyle(color: Colors.grey, fontSize: 50),
                             ),
-                            TextSpan(text: "Tjik", style: TextStyle(color: Colors.red),
+                            TextSpan(text: "Tjik", style: TextStyle(color: Colors.red, fontSize: 50),
                             ),
 
                           ],
@@ -82,7 +82,7 @@ class LandingScreen extends StatelessWidget {
                         "Food Delivery",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 18,
                           color: Colors.black
                         ),
                         textAlign: TextAlign.center,
@@ -194,3 +194,4 @@ class CustomClipperAppBar extends CustomClipper<Path> {
     return true;
   }
 }
+

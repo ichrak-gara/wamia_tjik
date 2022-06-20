@@ -55,21 +55,21 @@ class _IntroScreenState extends State<IntroScreen> {
               children: [
                 SizedBox(height: 30),
                 Container(
-                  height: 500,
+                  height: 400,
                   width: double.infinity,
                   child: PageView.builder(
                     controller: _controller,
-                      onPageChanged: (value){
+                    onPageChanged: (value){
                       setState(() {
                         count = value;
                       });
-                      },
-                      itemBuilder: (context, index) {
-                        return Image.asset("assets/images/vector1.png");
-                      },
+                    },
+                    itemBuilder: (context, index) {
+                      return Image.asset("assets/images/vector1.png");
+                    },
                     itemCount: _pages.length,
                   ),
-                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -88,9 +88,9 @@ class _IntroScreenState extends State<IntroScreen> {
                 SizedBox(height: 20),
                 Text("Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep",
 
-                textAlign: TextAlign.center,
+                  textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 90),
+                SizedBox(height: 50),
                 SizedBox(
                   height: 50,
                   width: double.infinity,

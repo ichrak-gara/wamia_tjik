@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../../../constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:signin_signup/const/colors.dart';
 
 
 class ItemCard extends StatelessWidget {
@@ -20,7 +19,7 @@ class ItemCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(left:20, right: 15, top: 1 ,bottom: 25),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white60,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -40,7 +39,7 @@ class ItemCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: PrimaryColor.withOpacity(0.13),
+                  color: AppColor.red.withOpacity(0.13),
                   shape: BoxShape.circle,
                 ),
                 child: SvgPicture.asset(
@@ -48,10 +47,11 @@ class ItemCard extends StatelessWidget {
                   width: size.width * 0.18,
                 ),
               ),
+              SizedBox(height: 5),
               Text(
                 title,
                 style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Colors.black
                 ),
