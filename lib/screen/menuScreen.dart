@@ -63,6 +63,24 @@ class MenuScreen extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap: (){
+                                  Navigator.of(context).pushReplacementNamed(DessertScreen.routeName);
+                                },
+                                child: MenuCard(
+                                  imageShape: ClipPath(
+                                    clipper: CustomTriangle(),
+                                    child: Container(
+                                      height: 80,
+                                      width: 80,
+                                      child: Image.asset("assets/images/dessert.jpg", fit: BoxFit.cover,),
+                                    ),
+                                  ),
+                                  name: "Desserts",
+                                  count: "20",
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              GestureDetector(
+                                onTap: (){
                                   Navigator.of(context).pushReplacementNamed(AlimentScreen.routeName);
                                 },
                                 child: MenuCard(
@@ -94,24 +112,6 @@ class MenuScreen extends StatelessWidget {
                                   ),
                                   name: "Boisson",
                                   count: "50",
-                                ),
-                              ),
-                              SizedBox(height: 20),
-                              GestureDetector(
-                                onTap: (){
-                                  Navigator.of(context).pushReplacementNamed(DessertScreen.routeName);
-                                },
-                                child: MenuCard(
-                                  imageShape: ClipPath(
-                                    clipper: CustomTriangle(),
-                                    child: Container(
-                                      height: 80,
-                                      width: 80,
-                                      child: Image.asset("assets/images/dessert.jpg", fit: BoxFit.cover,),
-                                    ),
-                                  ),
-                                  name: "Desserts",
-                                  count: "20",
                                 ),
                               ),
                               SizedBox(height: 20),

@@ -7,20 +7,23 @@ import '../widgets/bottomNavBar.dart';
 import '../widgets/searchBox.dart';
 import 'menuScreen.dart';
 import 'moreScreen.dart';
+import 'navBar.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavBar(),
       appBar: AppBar(
         backgroundColor: AppColor.bg2color,
-          leading: IconButton(
-          icon: SvgPicture.asset("assets/icons/menu.svg"),
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed(MoreScreen.routeName);
-          },
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
+        //   leading: IconButton(
+        //   icon: SvgPicture.asset("assets/icons/menu.svg"),
+        //   onPressed: () {
+        //     Navigator.of(context).pushReplacementNamed(MoreScreen.routeName);
+        //   },
+        // ),
         title: Center(
           child: RichText(
             text: TextSpan(

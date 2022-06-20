@@ -4,6 +4,7 @@ import 'package:signin_signup/screen/menuScreen.dart';
 import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/searchBox.dart';
+import 'individualItem.dart';
 
 class DessertScreen extends StatelessWidget {
   static const routeName ='/dessertnScreen';
@@ -39,13 +40,18 @@ class DessertScreen extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  DessertCard(
-                    image: Image.asset("assets/images/apple_pie.jpg",
-                      fit: BoxFit.cover,
+                  InkWell(
+                    onTap: ()
+                    {
+                      Navigator.of(context).pushReplacementNamed(IndividualItem.routeName);
+                    },
+                    child: DessertCard(
+                      image: Image.asset("assets/images/apple_pie.jpg",
+                        fit: BoxFit.cover,
+                      ),
+                      name: "Cake au Chocolate",
+                      rating: "4.9",
                     ),
-                    name: "French Apple Pie",
-                    shop: "Minute by tuk tuk",
-                    rating: "4.9",
                   ),
                   SizedBox(
                     height: 5,
@@ -55,7 +61,6 @@ class DessertScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     name: "Dark Chocolate Cake",
-                    shop: "Cakes by Tella",
                     rating: "4.7",
                   ),
                   SizedBox(
@@ -66,7 +71,15 @@ class DessertScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     name: "Street Shake",
-                    shop: "Cafe Racer",
+                    rating: "4.9",
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),DessertCard(
+                    image: Image.asset("assets/images/dessert4.jpg",
+                      fit: BoxFit.cover,
+                    ),
+                    name: "Street Shake",
                     rating: "4.9",
                   ),
                   SizedBox(
@@ -77,7 +90,6 @@ class DessertScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     name: "Fudgy Chewy Brownies",
-                    shop: "Minute by tuk tuk",
                     rating: "4.9",
                   ),
                   SizedBox(
@@ -98,17 +110,14 @@ class DessertCard extends StatelessWidget {
 
   final String _name;
   final String _rating;
-  final String _shop;
   final Image _image;
 
   const DessertCard({
     required String name,
     required String rating,
-    required String shop,
     required Image image,
   })  : _name = name,
         _rating = rating,
-        _shop = shop,
         _image = image;
 
 
@@ -139,9 +148,9 @@ class DessertCard extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment.bottomLeft,
+            alignment: Alignment.bottomCenter,
             child: Container(
-              height: 70,
+              height: 80,
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -167,13 +176,6 @@ class DessertCard extends StatelessWidget {
                       SizedBox(
                         width: 5,
                       ),
-                      Text(
-                        _shop,
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: Text(
@@ -193,6 +195,7 @@ class DessertCard extends StatelessWidget {
                 ],
               ),
             ),
+
           )
         ],
       ),

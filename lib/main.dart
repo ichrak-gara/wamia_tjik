@@ -6,6 +6,7 @@ import 'package:signin_signup/screen/alimentScreen.dart';
 import 'package:signin_signup/screen/boissonScreen.dart';
 import 'package:signin_signup/screen/dessertScreen.dart';
 import 'package:signin_signup/screen/forgetPwScreen.dart';
+import 'package:signin_signup/screen/individualItem.dart';
 import 'package:signin_signup/screen/introScreen.dart';
 import 'package:signin_signup/screen/loginScreen.dart';
 import 'package:signin_signup/screen/menuScreen.dart';
@@ -75,6 +76,7 @@ class LoginApp extends StatelessWidget {
         DessertScreen.routeName: (context) => DessertScreen(),
         PromotionScreen.routeName: (context) => PromotionScreen(),
         MoreScreen.routeName: (context) => MoreScreen(),
+        IndividualItem.routeName: (context) => IndividualItem(),
 
 
 

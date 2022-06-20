@@ -43,8 +43,7 @@ class AlimentScreen extends StatelessWidget {
                     image: Image.asset("assets/images/apple_pie.jpg",
                       fit: BoxFit.cover,
                     ),
-                    name: "French Apple Pie",
-                    shop: "Minute by tuk tuk",
+                    name: "Pizza ",
                     rating: "4.9",
                   ),
                   SizedBox(
@@ -55,7 +54,6 @@ class AlimentScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     name: "Dark Chocolate Cake",
-                    shop: "Cakes by Tella",
                     rating: "4.7",
                   ),
                   SizedBox(
@@ -66,7 +64,6 @@ class AlimentScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     name: "Street Shake",
-                    shop: "Cafe Racer",
                     rating: "4.9",
                   ),
                   SizedBox(
@@ -77,7 +74,6 @@ class AlimentScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     name: "Fudgy Chewy Brownies",
-                    shop: "Minute by tuk tuk",
                     rating: "4.9",
                   ),
                   SizedBox(
@@ -98,17 +94,14 @@ class DessertCard extends StatelessWidget {
 
   final String _name;
   final String _rating;
-  final String _shop;
   final Image _image;
 
   const DessertCard({
     required String name,
     required String rating,
-    required String shop,
     required Image image,
   })  : _name = name,
         _rating = rating,
-        _shop = shop,
         _image = image;
 
 
@@ -166,10 +159,6 @@ class DessertCard extends StatelessWidget {
                       ),
                       SizedBox(
                         width: 5,
-                      ),
-                      Text(
-                        _shop,
-                        style: TextStyle(color: Colors.white),
                       ),
                       SizedBox(
                         width: 5,
