@@ -109,7 +109,7 @@ class _CartScreenState extends State<CartScreen> {
                         child: Container(
                           width: 80,
                           height: 80,
-                          child: Image.asset("assets/images/tacos.jpeg"),
+                          child: Image.asset("assets/images/emptyPanier.png"),
                           // child: Image.network(widget.prod_det_image??'default value'),
                         ),
                       ),

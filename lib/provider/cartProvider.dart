@@ -3,7 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:signin_signup/main.dart';
 import 'package:signin_signup/models/model_favorite.dart';
 
-import '../models/cartModel.dart';
 import '../models/item_model.dart';
 
 class ProviderMethode with ChangeNotifier{

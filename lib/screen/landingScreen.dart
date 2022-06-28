@@ -13,7 +13,6 @@ class LandingScreen extends StatelessWidget {
       body: Container(
         width: Helper.getScreenWidth(context),
         height: Helper.getScreenHeight(context),
-
         child: Stack(
           children: [
             Container(

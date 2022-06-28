@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:signin_signup/const/colors.dart';
 
-import '../const/colors.dart';
 import 'HomeScreen.dart';
 
-class FavoriteEmptyList extends StatelessWidget {
+class PanierEmptyList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -18,7 +18,7 @@ class FavoriteEmptyList extends StatelessWidget {
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(7.0),
                   child: Image(
-                    image: AssetImage('assets/images/favoriEmpty.png'),
+                    image: AssetImage('assets/images/cartEmptyy.png'),
                     fit: BoxFit.cover,
                   )),
             ),
@@ -27,7 +27,7 @@ class FavoriteEmptyList extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'Aucun élément dans votre liste de favoris',
+            'Aucun article dans votre panier ',
             textAlign: TextAlign.center,
             style: TextStyle(
                 color: AppColor.red, fontSize: 20, fontWeight: FontWeight.w600),
@@ -36,7 +36,7 @@ class FavoriteEmptyList extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'Ajoutez à votre liste de favoris ',
+            'Ajoutez à votre panier ',
             textAlign: TextAlign.center,
             style: TextStyle(
                 color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
@@ -60,7 +60,7 @@ class FavoriteEmptyList extends StatelessWidget {
                 ),
                 color: AppColor.red,
               )
-          ),
+              ),
         ],
       ),
     );

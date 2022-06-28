@@ -95,10 +95,6 @@ class _BodyState extends State<Body> {
 
   Future<dynamic> fetchContacts() async {
     var seller_id = await session.get('seller_id');
-    //****** a ajouter ******
-    var name_of_product = await session.get('name');
-
-    //******
     print(seller_id);
     return orpc.callKw({
       'model': 'product.template',
@@ -276,7 +272,6 @@ class _BodyState extends State<Body> {
   //     ),
   //   );
   // }
-
 
   @override
   Widget build(BuildContext context) {

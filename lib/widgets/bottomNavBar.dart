@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:signin_signup/const/colors.dart';
 
+import '../screen/basket.dart';
 import '../screen/cartScreen.dart';
+import '../screen/favoriteScreen.dart';
 import '../screen/profilScreen.dart';
+import '../screen/search.dart';
 
 
 class BottomNavBar extends StatelessWidget {
@@ -39,7 +42,17 @@ class BottomNavBar extends StatelessWidget {
             color: AppColor.red,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed(SearchScreen.routeName);
+            },
+            //icon: SvgPicture.asset("assets/icons/favorite.svg"),
+            icon: Icon(Icons.search),
+            iconSize: 30,
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed(FavoriteScreen.routeName);
+            },
             //icon: SvgPicture.asset("assets/icons/favorite.svg"),
             icon: Icon(Icons.favorite_border),
             iconSize: 30,
@@ -47,7 +60,7 @@ class BottomNavBar extends StatelessWidget {
           IconButton(
             onPressed: () {
               Navigator.of(context).pushReplacementNamed(
-                  CartScreen.routeName);
+                  Basket.routeName);
             },
             //icon: SvgPicture.asset("assets/icons/panier.svg"),
             icon: Icon(Icons.shopping_cart_outlined),

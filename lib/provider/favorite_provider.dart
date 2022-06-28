@@ -46,6 +46,7 @@ class FavoriteProvider with ChangeNotifier {
     notifyListeners();
   }
 
+
   void removeItem(String itemId) {
     _favoriteItems.remove(itemId);
     notifyListeners();
